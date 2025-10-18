@@ -8,12 +8,25 @@ import { isDark, toggleDark } from '~/composables/dark'
   <header class="h-16 w-full border-b border-gray-200 bg-white dark:border-gray-900 dark:bg-dark-500">
     <Toaster position="top-right" rich-colors close-button />
     <div class="h-full flex items-center gap-x-4 px-4">
-      <div id="site-title" class="text-xl font-bold">
+      <div id="site-title" class="mr-15 text-xl font-bold">
         Zako Pako
       </div>
+      <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
+        创建金库
+      </Button>
+      <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
+        查看捐款
+      </Button>
+      <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
+        提款
+      </Button>
       <div class="flex-1" />
+      <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
+        <i class="i-carbon-logo-github mr-2 text-xl" />
+        Github登录
+      </Button>
       <Button
-        class="border rounded-md bg-white px-2 shadow-sm transition-colors duration-200 dark:bg-white hover:bg-gray-200 dark:hover:bg-gray-300"
+        class="rounded-md bg-white px-2 shadow-md transition-colors duration-200 dark:bg-white hover:bg-gray-200 dark:hover:bg-gray-300"
         @click="toggleDark()"
       >
         <i v-if="isDark" class="i-carbon-moon text-xl text-gray-800" />
