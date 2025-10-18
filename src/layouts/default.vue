@@ -22,10 +22,11 @@ import { isDark, toggleDark } from '~/composables/dark'
       </Button>
       <div class="flex-1" />
       <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
+        <i class="i-carbon-logo-github mr-2 text-xl" />
         Github登录
       </Button>
       <Button
-        class="border rounded-md bg-white px-2 shadow-md transition-colors duration-200 dark:bg-white hover:bg-gray-200 dark:hover:bg-gray-300"
+        class="rounded-md bg-white px-2 shadow-md transition-colors duration-200 dark:bg-white hover:bg-gray-200 dark:hover:bg-gray-300"
         @click="toggleDark()"
       >
         <i v-if="isDark" class="i-carbon-moon text-xl text-gray-800" />
