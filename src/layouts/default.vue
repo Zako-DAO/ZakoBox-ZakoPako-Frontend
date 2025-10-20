@@ -11,9 +11,11 @@ import { isDark, toggleDark } from '~/composables/dark'
       <div id="site-title" class="mr-15 text-xl font-bold">
         Zako Pako
       </div>
-      <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
-        创建金库
-      </Button>
+      <RouterLink to="/create-vault">
+        <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
+          创建金库
+        </Button>
+      </RouterLink>
       <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
         查看捐款
       </Button>
