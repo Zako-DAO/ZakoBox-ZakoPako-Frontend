@@ -18,9 +18,11 @@ import { isDark, toggleDark } from '~/composables/dark'
           创建金库
         </Button>
       </RouterLink>
-      <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
-        查看捐款
-      </Button>
+      <RouterLink to="/my-vault">
+        <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
+          查看捐款
+        </Button>
+      </RouterLink>
       <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
         提款
       </Button>
