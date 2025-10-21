@@ -21,6 +21,7 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/create-vault': RouteRecordInfo<'/create-vault', '/create-vault', Record<never, never>, Record<never, never>>,
     '/my-vault': RouteRecordInfo<'/my-vault', '/my-vault', Record<never, never>, Record<never, never>>,
+    '/withdraw': RouteRecordInfo<'/withdraw', '/withdraw', Record<never, never>, Record<never, never>>,
   }
 
   /**
@@ -44,6 +45,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/my-vault.vue': {
       routes: '/my-vault'
+      views: never
+    }
+    'src/pages/withdraw.vue': {
+      routes: '/withdraw'
       views: never
     }
   }

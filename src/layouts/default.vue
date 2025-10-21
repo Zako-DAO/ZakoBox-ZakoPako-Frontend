@@ -23,9 +23,11 @@ import { isDark, toggleDark } from '~/composables/dark'
           查看捐款
         </Button>
       </RouterLink>
-      <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
-        提款
-      </Button>
+      <RouterLink to="/withdraw">
+        <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
+          提款
+        </Button>
+      </RouterLink>
       <div class="flex-1" />
       <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
         <i class="i-carbon-logo-github mr-2 text-xl" />
