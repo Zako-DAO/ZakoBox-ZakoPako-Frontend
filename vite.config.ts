@@ -48,6 +48,16 @@ export default defineConfig({
     ],
   },
 
+  server: {
+    proxy: {
+      '/api/v1': {
+        target: 'http://localhost:3001/api/v1',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api\/v1/, ''),
+      },
+    },
+  },
+
   build: {
     sourcemap: true,
   },

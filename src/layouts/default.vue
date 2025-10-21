@@ -1,7 +1,17 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
 import { Toaster } from 'vue-sonner'
 import Button from '~/components/ui/button/Button.vue'
 import { isDark, toggleDark } from '~/composables/dark'
+import { useSessionsStore } from '~/stores/sessions'
+
+const sessionsStore = useSessionsStore()
+const { session } = storeToRefs(sessionsStore)
+
+onMounted(async () => {
+  await sessionsStore.getSession()
+})
 </script>
 
 <template>
@@ -29,9 +39,20 @@ import { isDark, toggleDark } from '~/composables/dark'
         </Button>
       </RouterLink>
       <div class="flex-1" />
-      <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
-        <i class="i-carbon-logo-github mr-2 text-xl" />
-        Github登录
+      <Button
+        v-if="!session"
+        class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200"
+        @click="sessionsStore.createSession()"
+      >
+        <i class="i-simple-icons-ethereum mr-2 text-xl" />
+        连接钱包
+      </Button>
+      <Button
+        v-else
+        class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200"
+      >
+        <i class="i-simple-icons-ethereum mr-2 text-xl" />
+        {{ session.address }}
       </Button>
       <Button
         class="rounded-md bg-white px-2 shadow-md transition-colors duration-200 dark:bg-white hover:bg-gray-200 dark:hover:bg-gray-300"
