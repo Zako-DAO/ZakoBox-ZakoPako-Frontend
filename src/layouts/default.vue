@@ -8,9 +8,11 @@ import { isDark, toggleDark } from '~/composables/dark'
   <header class="h-16 w-full border-b border-gray-200 bg-white dark:border-gray-900 dark:bg-dark-500">
     <Toaster position="top-right" rich-colors close-button />
     <div class="h-full flex items-center gap-x-4 px-4">
-      <div id="site-title" class="mr-15 text-xl font-bold">
-        Zako Pako
-      </div>
+      <RouterLink to="/">
+        <div id="site-title" class="mr-15 text-xl font-bold">
+          Zako Pako
+        </div>
+      </RouterLink>
       <RouterLink to="/create-vault">
         <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
           创建金库
