@@ -46,9 +46,22 @@ export const useSessionsStore = defineStore('sessions', () => {
     session.value = response.data
   }
 
+  async function destroySession() {
+    try {
+      await Api.sessions.destroy()
+    }
+    catch (err) {
+      console.error('Failed to destroy session:', err)
+    }
+    session.value = null
+    walletStore.address = null
+    router.replace('/')
+  }
+
   return {
     session,
     getSession,
     createSession,
+    destroySession,
   }
 })
