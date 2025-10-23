@@ -1,7 +1,7 @@
 import type { Router } from 'vue-router'
 import { useSessionsStore } from '~/stores/sessions'
 
-export function routerGuard(router: Router) {
+export function useRouterGuard(router: Router) {
   router.beforeEach(async (to) => {
     const sessionsStore = useSessionsStore()
     if (!sessionsStore.session)

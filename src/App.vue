@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { routerGuard } from '~/composables/routerGuard'
+import { useRouterGuard } from '~/composables/routerGuard'
 
 const router = useRouter()
 
-routerGuard(router)
+useRouterGuard(router)
 </script>
 
 <template>
