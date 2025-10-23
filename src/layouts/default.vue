@@ -36,17 +36,17 @@ onMounted(async () => {
           Zako Pako
         </div>
       </RouterLink>
-      <RouterLink to="/create-vault">
+      <RouterLink v-if="session" to="/create-vault">
         <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
           创建金库
         </Button>
       </RouterLink>
-      <RouterLink to="/my-vault">
+      <RouterLink v-if="session" to="/my-vault">
         <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
           查看捐款
         </Button>
       </RouterLink>
-      <RouterLink to="/withdraw">
+      <RouterLink v-if="session" to="/withdraw">
         <Button class="rounded-md bg-white px-2 text-gray-800 shadow-md transition-colors duration-200 hover:bg-gray-200">
           提款
         </Button>
