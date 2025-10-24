@@ -1,4 +1,5 @@
 import axios from 'feaxios'
+import { useGithubConnectionsApi } from './github-connection'
 import { useSessionMessagesApi } from './sessionMessages'
 import { useSessionsApi } from './sessions'
 
@@ -16,4 +17,5 @@ httpClient.interceptors.response.use((response) => {
 export const Api = {
   sessions: useSessionsApi(httpClient),
   sessionMessages: useSessionMessagesApi(httpClient),
+  githubConnections: useGithubConnectionsApi(httpClient),
 }
