@@ -19,6 +19,7 @@ export function createContractPublicClient() {
 
 // Wallet client for writing to contracts
 export function createContractWalletClient() {
+  // @ts-expect-error window.ethereum is not typed
   if (typeof window === 'undefined' || !window.ethereum)
     return null
 
@@ -218,7 +219,7 @@ export async function approveToken(
       functionName: 'approve',
       args: [spender, amount],
       account,
-    })
+    } as any)
 
     toast.info('Approving token spending...')
     await waitForTransaction(hash, 'Token approved successfully')

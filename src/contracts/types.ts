@@ -5,12 +5,12 @@
 import type { Address } from 'viem'
 
 export interface TreasuryConfig {
-  owners: Address[]
+  owners: readonly Address[]
   threshold: bigint
   emergencyThreshold: bigint
   dailyLimit: bigint
-  whitelistedTokens: Address[]
-  whitelistedRecipients: Address[]
+  whitelistedTokens: readonly Address[]
+  whitelistedRecipients: readonly Address[]
   vestingStart: bigint
   vestingDuration: bigint
   vestingCliff: bigint

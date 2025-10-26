@@ -380,12 +380,12 @@ export const useZakoBoxStore = defineStore('zakobox', () => {
 
     try {
       const publicClient = createContractPublicClient()
-      const proposal = await publicClient.readContract({
+      const proposal = (await publicClient.readContract({
         address: currentTreasury.value,
         abi: ZakoBoxABI,
         functionName: 'getWithdrawalProposal',
         args: [BigInt(proposalId)],
-      })
+      })) as unknown as readonly [Address, Address, bigint, string, bigint, boolean, bigint]
 
       const withdrawalProposal: WithdrawalProposal = {
         token: proposal[0],

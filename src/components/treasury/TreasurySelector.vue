@@ -54,10 +54,12 @@ async function loadTreasuryInfo(address: Address) {
 }
 
 // Handle treasury selection
-function onTreasurySelect(address: string) {
-  selectedTreasury.value = address as Address
-  zakoBoxStore.setCurrentTreasury(address as Address)
-  emit('treasurySelected', address as Address)
+function onTreasurySelect(value: any) {
+  if (typeof value !== 'string')
+    return
+  selectedTreasury.value = value as Address
+  zakoBoxStore.setCurrentTreasury(value as Address)
+  emit('treasurySelected', value as Address)
 
   // Load treasury data
   zakoBoxStore.loadTreasuryData()

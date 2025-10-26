@@ -54,7 +54,7 @@ export const useZakoBoxFactoryStore = defineStore('zakobox-factory', () => {
         address: addresses.ZakoBoxFactory,
         abi: ZakoBoxFactoryABI,
         functionName: 'computeTreasuryAddress',
-        args: [salt, config],
+        args: [salt, config as any],
       })
 
       return address
@@ -101,7 +101,7 @@ export const useZakoBoxFactoryStore = defineStore('zakobox-factory', () => {
         address: addresses.ZakoBoxFactory,
         abi: ZakoBoxFactoryABI,
         functionName: 'createTreasury',
-        args: [salt, config, name, description],
+        args: [salt, config as any, name, description],
         account: walletStore.address,
       })
 
@@ -171,7 +171,7 @@ export const useZakoBoxFactoryStore = defineStore('zakobox-factory', () => {
         address: addresses.ZakoBoxFactory,
         abi: ZakoBoxFactoryABI,
         functionName: 'createTreasuryBatch',
-        args: [salts, configs, names, descriptions],
+        args: [salts, configs as any, names, descriptions],
         account: walletStore.address,
       })
 
@@ -269,8 +269,8 @@ export const useZakoBoxFactoryStore = defineStore('zakobox-factory', () => {
         args: [walletStore.address],
       })
 
-      userTreasuries.value = treasuries
-      return treasuries
+      userTreasuries.value = [...treasuries]
+      return [...treasuries]
     }
     catch (error) {
       console.error('Failed to get user treasuries:', error)
@@ -286,12 +286,12 @@ export const useZakoBoxFactoryStore = defineStore('zakobox-factory', () => {
       const publicClient = createContractPublicClient()
       const addresses = getContractAddresses()
 
-      const info = await publicClient.readContract({
+      const info = (await publicClient.readContract({
         address: addresses.ZakoBoxFactory,
         abi: ZakoBoxFactoryABI,
         functionName: 'getTreasuryInfo',
         args: [treasuryAddress],
-      })
+      })) as unknown as readonly [string, string, Address, bigint]
 
       const treasuryInfo: TreasuryInfo = {
         name: info[0],

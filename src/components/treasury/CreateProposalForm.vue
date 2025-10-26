@@ -72,7 +72,9 @@ const isFormValid = computed(() => {
 })
 
 // Handle token selection
-function onTokenSelect(value: string) {
+function onTokenSelect(value: any) {
+  if (typeof value !== 'string')
+    return
   selectedToken.value = value as Address
 
   // Update decimals
