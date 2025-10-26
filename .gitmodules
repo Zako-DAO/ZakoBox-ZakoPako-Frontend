@@ -1,0 +1,9 @@
+[submodule "submodules/backend"]
+	path = submodules/backend
+	url = https://github.com/Zako-DAO/ZakoBox-ZakoPako-Backend.git
+[submodule "submodules/contracts"]
+	path = submodules/contracts
+	url = https://github.com/Zako-DAO/ZakoBox-ZakoPako-Contracts.git
+[submodule "submodules/docs"]
+	path = submodules/docs
+	url = https://github.com/Zako-DAO/ZakoBox-ZakoPako-Docs.git

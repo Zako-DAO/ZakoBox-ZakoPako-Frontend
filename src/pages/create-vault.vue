@@ -1,55 +1,22 @@
 <script setup lang="ts">
-import Button from '~/components/ui/button/Button.vue'
-import Input from '~/components/ui/input/Input.vue'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from '~/components/ui/select'
+import CreateTreasuryForm from '~/components/treasury/CreateTreasuryForm.vue'
 </script>
 
 <template>
-  <div mt-40 space-y-5 class="flex flex-col items-center">
-    <Input type="vault-name" placeholder="金库要叫什么呢" />
-    <Select>
-      <SelectTrigger class="w-[180px]">
-        <SelectValue placeholder="给谁建的呢" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>项目</SelectLabel>
-          <SelectItem value="apple">
-            杂鱼盒
-          </SelectItem>
-          <SelectItem value="banana">
-            ZakoBox
-          </SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-    <Select>
-      <SelectTrigger class="w-[180px]">
-        <SelectValue placeholder="要用什么币呢" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>币种</SelectLabel>
-          <SelectItem value="apple">
-            杂鱼币
-          </SelectItem>
-          <SelectItem value="banana">
-            zakozako~
-          </SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-    <Input type="vault-end-height" placeholder="到什么高度结束呢" />
-    <Button type="submit">
-      开建！
-    </Button>
+  <div class="container mx-auto py-8 space-y-8">
+    <!-- Header -->
+    <div class="space-y-2">
+      <h1 class="text-3xl font-bold">
+        Create Treasury
+      </h1>
+      <p class="text-muted-foreground">
+        Deploy a new multi-signature treasury contract on Sepolia
+      </p>
+    </div>
+
+    <!-- Create Form -->
+    <div class="mx-auto max-w-3xl">
+      <CreateTreasuryForm />
+    </div>
   </div>
 </template>
