@@ -22,6 +22,7 @@ Built as an ETHOnline 2025 hackathon project, ZakoBox aims to become an on-chain
 ### MVP Stage (Hackathon)
 
 **🏦 Treasury Management**
+
 - ZakoBox smart contract vault for fund storage and management
 - Multi-signature wallet integration (SAFE)
 - Real-time treasury balance display
@@ -29,18 +30,21 @@ Built as an ETHOnline 2025 hackathon project, ZakoBox aims to become an on-chain
 - Secure fund withdrawal mechanisms
 
 **💰 On-Chain Fundraising**
+
 - GitHub integration with one-click donation to designated vaults
 - Direct on-chain donation portal
 - PYUSD stablecoin priority support (hackathon bonus points)
 - Cross-chain asset bridging (Jumper aggregator integration)
 
 **📊 Data Transparency**
+
 - Deep integration with Blockscout SDK (hackathon bonus points)
 - Simplified donation/crowdfunding data dashboard
 - Real-time fund flow tracking
 - Transaction history visualization
 
 **🔐 Web3 Integration**
+
 - Multi-wallet support (MetaMask, WalletConnect)
 - Automatic network switching (Sepolia testnet)
 - Real-time transaction status tracking
@@ -58,33 +62,39 @@ Built as an ETHOnline 2025 hackathon project, ZakoBox aims to become an on-chain
 ## 🛠️ Tech Stack
 
 ### Core Framework
+
 - **[Vue 3.6](https://vuejs.org/)** - Progressive JavaScript framework (Alpha with Vapor mode support)
 - **[TypeScript 5.9+](https://www.typescriptlang.org/)** - Type-safe JavaScript superset
 - **[Rolldown Vite 7.1](https://rolldown.rs/)** - Rust-based high-performance build tool
 
 ### State Management & Routing
+
 - **[Pinia 3.0+](https://pinia.vuejs.org/)** - Intuitive state management for Vue
 - **[Vue Router 4.5+](https://router.vuejs.org/)** - Official router for Vue.js
 - **[unplugin-vue-router](https://github.com/posva/unplugin-vue-router)** - File-system based routing
 
 ### Web3 Integration
+
 - **[Viem 2.38+](https://viem.sh/)** - Type-safe TypeScript Ethereum interface library
 - Sepolia testnet support
 - MetaMask wallet connection
 
 ### Styling & UI
+
 - **[UnoCSS 66.5+](https://unocss.dev/)** - Instant on-demand atomic CSS engine
 - **[shadcn-vue](https://www.shadcn-vue.com/)** - Accessible component library
 - **[Reka UI](https://www.reka-ui.com/)** - Unstyled Vue component library
 - **[Tailwind CSS](https://tailwindcss.com/)** compatible syntax
 
 ### Development Tools
+
 - **[Vitest 3.2+](https://vitest.dev/)** - Unit testing framework powered by Vite
 - **[Oxlint](https://oxc-project.github.io/)** - High-performance Rust linter
 - **[ESLint 9](https://eslint.org/)** - JavaScript/TypeScript code linting
 - **[pnpm 10.18+](https://pnpm.io/)** - Fast, disk space efficient package manager
 
 ### Other Libraries
+
 - **[Vue I18n 11+](https://vue-i18n.intlify.dev/)** - Internationalization plugin for Vue.js
 - **[VueUse](https://vueuse.org/)** - Collection of Vue Composition API utilities
 - **[feaxios](https://github.com/huodoushigemi/feaxios)** - Enhanced Axios HTTP client
@@ -178,6 +188,7 @@ The application will be available at [http://localhost:3334](http://localhost:33
 7. Verify that your wallet address is displayed correctly in the UI
 
 **Troubleshooting Wallet Connection:**
+
 - Ensure MetaMask is unlocked
 - Check browser console for errors (F12 → Console tab)
 - Try refreshing the page
@@ -263,59 +274,71 @@ The build output will be in the `dist/` directory.
 #### Wallet Connection Issues
 
 **Problem:** MetaMask not detected
+
 - **Solution:** Ensure MetaMask extension is installed and enabled
 - **Solution:** Try refreshing the page or restarting the browser
 
 **Problem:** Wrong network
+
 - **Solution:** Manually switch to Sepolia in MetaMask
 - **Solution:** The app should prompt for network switch automatically
 
 **Problem:** Connection rejected
+
 - **Solution:** Check MetaMask is unlocked
 - **Solution:** Review and accept the connection in MetaMask popup
 
 #### API Request Failures
 
 **Problem:** 404 errors on `/api/v1` endpoints
+
 - **Solution:** Ensure backend service is running on `localhost:3001`
 - **Solution:** Check proxy configuration in `vite.config.ts`
 
 **Problem:** CORS errors
+
 - **Solution:** Verify backend CORS settings allow `localhost:3334`
 - **Solution:** Use the backend's configured allowed origins
 
 #### Transaction Failures
 
 **Problem:** Insufficient funds
+
 - **Solution:** Get more test ETH from Sepolia faucets
 - **Solution:** Check your wallet balance in MetaMask
 
 **Problem:** Transaction reverted
+
 - **Solution:** Check contract requirements (e.g., minimum amount, permissions)
 - **Solution:** Review transaction details in block explorer
 - **Solution:** Verify you're on the correct network (Sepolia)
 
 **Problem:** Gas estimation failed
+
 - **Solution:** Ensure you have enough ETH for gas fees
 - **Solution:** Try increasing gas limit manually in MetaMask
 
 #### Type Errors
 
 **Problem:** TypeScript compilation errors
+
 - **Solution:** Run `pnpm typecheck` to see detailed errors
 - **Solution:** Ensure all dependencies are installed correctly
 - **Solution:** Delete `node_modules` and `pnpm-lock.yaml`, then run `pnpm install`
 
 **Problem:** Module not found
+
 - **Solution:** Check the path alias (`~/`) is configured correctly
 - **Solution:** Restart your IDE/editor TypeScript server
 
 #### Build Errors
 
 **Problem:** Out of memory during build
+
 - **Solution:** Increase Node.js memory: `NODE_OPTIONS=--max-old-space-size=4096 pnpm build`
 
 **Problem:** Module resolution errors
+
 - **Solution:** Check `tsconfig.json` and `vite.config.ts` path configurations
 - **Solution:** Clear Vite cache: `rm -rf node_modules/.vite`
 
@@ -421,10 +444,12 @@ router.push({ name: '/my-vault' })
 // src/api/example.ts
 import type { AxiosInstance } from 'axios'
 
-export const useExampleApi = (client: AxiosInstance) => ({
-  getItems: () => client.get('/items'),
-  createItem: (data: any) => client.post('/items', data),
-})
+export function useExampleApi(client: AxiosInstance) {
+  return {
+    getItems: () => client.get('/items'),
+    createItem: (data: any) => client.post('/items', data),
+  }
+}
 ```
 
 **Registering the API:**
@@ -446,7 +471,7 @@ export const Api = {
 ```typescript
 // src/stores/example.ts
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 export const useExampleStore = defineStore('example', () => {
   const count = ref(0)
@@ -472,7 +497,9 @@ const store = useExampleStore()
 <template>
   <div>
     <p>Count: {{ store.count }}</p>
-    <button @click="store.increment">Increment</button>
+    <button @click="store.increment">
+      Increment
+    </button>
   </div>
 </template>
 ```
@@ -483,13 +510,16 @@ UnoCSS provides Tailwind-compatible utility classes:
 
 ```vue
 <template>
-  <div class="flex items-center justify-center p-4 bg-teal-700 hover:bg-teal-800">
-    <button class="btn">Click me</button>
+  <div class="flex items-center justify-center bg-teal-700 p-4 hover:bg-teal-800">
+    <button class="btn">
+      Click me
+    </button>
   </div>
 </template>
 ```
 
 **Custom shortcuts** are defined in `uno.config.ts`:
+
 - `btn` - Pre-styled button
 - `icon-btn` - Icon button with hover effects
 
@@ -542,6 +572,7 @@ We welcome contributions from the community! Here's how you can help:
 ### Commit Messages
 
 Follow the conventional commits specification:
+
 - `feat:` - New feature
 - `fix:` - Bug fix
 - `docs:` - Documentation changes
