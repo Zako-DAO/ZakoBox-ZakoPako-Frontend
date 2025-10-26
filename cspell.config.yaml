@@ -1,15 +1,16 @@
 words:
-  - pinia
-  - rehype
-  - reka-ui
-  - vue-sonner
   - antfu
   - demi
+  - feaxios
   - iconify
   - intlify
+  - Oxlint
   - persistedstate
   - pinia
   - pnpm
+  - rehype
+  - Reka
+  - reka-ui
   - shadcn
   - sizecheck
   - taze
@@ -20,4 +21,5 @@ words:
   - vitejs
   - Vitesse
   - vitest
+  - vue-sonner
   - vueuse

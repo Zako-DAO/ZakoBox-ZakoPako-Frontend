@@ -5,3 +5,7 @@ node_modules
 .idea/
 *.log
 public/assets/fonts
+
+# Claude Code
+/.claude
+CLAUDE.md
