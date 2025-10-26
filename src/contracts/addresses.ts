@@ -5,8 +5,8 @@
 export const CONTRACTS = {
   // Sepolia Testnet
   sepolia: {
-    ZakoBoxFactory: '0x0000000000000000000000000000000000000000', // TODO: Update after deployment
-    ZakoBox: '0x0000000000000000000000000000000000000000', // Implementation address
+    ZakoBoxFactory: '0x53ada14a75e18a8f5ce0e65a87442857f472924a', // Factory Proxy (main entry point)
+    ZakoBox: '0x48f6337fc82b3571cb16f0271e9d08ce73be7df8', // ZakoBox Implementation
   },
   // Ethereum Mainnet
   mainnet: {
